@@ -161,7 +161,7 @@ public class WorkerConnector implements Runnable {
             if (!isSourceConnector() && !isSinkConnector()) {
                 throw new ConnectException("Connector implementations must be a subclass of either SourceConnector or SinkConnector");
             }
-            log.debug("{} Initializing connector {}", this, connName);
+            log.debug("{} Initializing connector {} with config {}", this, connName, config);
             if (isSinkConnector()) {
                 SinkConnectorConfig.validate(config);
                 connector.initialize(new WorkerSinkConnectorContext());
